@@ -12,6 +12,21 @@ console.log(func(5));
 // 1) створити інтерфейс на основі цього объекта:
 //     Зверніть увагу там де масиви... в них може бути багато однотипних об'єктів
 //
+
+interface ICores {
+    flight :number;
+    core: {
+        reuse_count: number;
+        status: string;
+    }
+}
+
+interface IPayloads {
+    payload_type: string;
+    payload_mass_kg: number;
+    payload_mass_lbs: number;
+}
+
 interface Mission {
     mission_name: string;
     launch_date_local: string;
@@ -29,23 +44,25 @@ interface Mission {
         rocket_name: string;
         first_stage:
         {
-            cores:
-                {
-                    flight :number;
-                    core: {
-                        reuse_count: number;
-                        status: string;
-                    }
-                }[]
-            };
+             cores: ICores[]
+            //     {
+            //         flight :number;
+            //         core: {
+            //             reuse_count: number;
+            //             status: string;
+            //         }
+            //     }[]
+        }
+            ;
         second_stage:
         {
-            payloads:
-                {
-                    payload_type: string;
-                    payload_mass_kg: number;
-                    payload_mass_lbs: number;
-                }[]
+            payloads: IPayloads[]
+                // {
+                //     payload_type: string;
+                //     payload_mass_kg: number;
+                //     payload_mass_lbs: number;
+                // }
+
 
         }
     }
